@@ -1,12 +1,11 @@
-# FASTAPI Hello world endpoint
 from fastapi import FastAPI
 import uvicorn
 
 app = FastAPI()
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
+@app.get("/print/{text}")
+async def read_item(text: str):
+    return {"text": text}
 
 
 if __name__ == "__main__":
