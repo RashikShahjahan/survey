@@ -13,8 +13,7 @@ class Survey(db.Model):
     feedback = db.Column(db.String(250), nullable=False)
 
 # Create the database
-@app.before_first_request
-def create_tables():
+with app.app_context():
     db.create_all()
 
 # Serve the survey form
